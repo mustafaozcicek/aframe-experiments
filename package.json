@@ -1,0 +1,16 @@
+{
+  "name": "aframe-experiments",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview --host"
+  },
+  "dependencies": {
+    "aframe": "^1.7.1"
+  },
+  "devDependencies": {
+    "vite": "^7.3.1"
+  }
+}

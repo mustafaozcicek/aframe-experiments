@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+
+    <a-scene background="color: #222" >
+
+        <a-assets>
+            <a-cubemap id="italy">
+                    <a-cubemap-face src="/cubemap/px.png"/>
+                    <a-cubemap-face src="/cubemap/nx.png"/>
+                    <a-cubemap-face src="/cubemap/py.png"/>
+                    <a-cubemap-face src="/cubemap/ny.png"/>
+                    <a-cubemap-face src="/cubemap/pz.png"/>
+                    <a-cubemap-face src="/cubemap/nz.png"/>
+            </a-cubemap>
+
+            <img id="brick-diff" src="/brick/whitewashed_brick_diff_1k.png">
+            <img id="brick-nor" src="/brick/whitewashed_brick_nor_gl_1k.png">
+            <img id="brick-rough" src="/brick/whitewashed_brick_rough_1k.png">
+            <img id="brick-ao" src="/brick/whitewashed_brick_ao_1k.png">
+            <img id="brick-arm" src="/brick/whitewashed_brick_arm_1k.png">
+
+
+        </a-assets>
+
+        <a-entity id="shader-example" position="0 0 0">
+
+            <a-sphere position="-3 1.25 -5" radius="1.25" color="#EF2D5E" material="shader: standard" shadow></a-sphere>
+
+            <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E" material="shader: phong" shadow></a-sphere>
+
+            <a-sphere position="3 1.25 -5" radius="1.25" color="#EF2D5E" material="shader: flat" shadow></a-sphere>
+
+            <a-plane position="0 0 -4" rotation="-90 0 0" width="9" height="9" color="#7BC8A4" shadow></a-plane>
+
+        </a-entity>
+
+
+
+        <a-entity id="roughness-example" position="-10 0 0">
+
+            <a-sphere position="-3 1.25 -5" radius="1.25" material="color: #ffffff; src: #brick-diff" ></a-sphere>
+
+            <a-sphere position="0 1.25 -5" radius="1.25" material="color: #EF2D5E; roughness: 0.5; envMap: #italy" shadow></a-sphere>
+
+            <a-sphere position="3 1.25 -5" radius="1.25" material="color: #EF2D5E; roughness: 0; envMap: #italy" shadow></a-sphere>
+
+            <a-box position="3 0.58859 -3" material="color: #FFFF00; emissive: #fff0f0; emissiveIntensity: 11.01; roughness: 0" shadow=""></a-box>
+
+            
+            
+
+            <a-plane position="0 0 -4" rotation="-90 0 0" width="9" height="9" material="color: #7BC8A4" shadow></a-plane>
+
+
+            
+        </a-entity>
+
+        <a-entity light="intensity: 4.53; type: point" position="-12.27247 2.62652 -1.42076"></a-entity>
+
+        <a-entity light="intensity: 1.47; type: ambient"></a-entity>
+        
+    
+    </a-scene>
+    
+    
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>
